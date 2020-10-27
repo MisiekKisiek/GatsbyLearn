@@ -15,7 +15,9 @@ const Blog = () => {
               title
               date
             }
-            excerpt
+            fields{
+              slug
+            }
           }
         }
       }
@@ -23,22 +25,18 @@ const Blog = () => {
   `)
 
   const renderPosts = () => {
-    console.log(data)
     const {edges} = data.allMarkdownRemark;
-    console.log(edges)
     const posts = edges.map(post => {
         const {title, date} = post.node.frontmatter;
         console.log(title,date, post)
         return(<Post title={title} date={date} key={title}/>)
     })
-    console.log(posts)
     return posts
   }
-  console.log(renderPosts())
   return (
-    <>
+    <Layout>
       {renderPosts()}
-    </>
+    </Layout>
   )
 }
 
