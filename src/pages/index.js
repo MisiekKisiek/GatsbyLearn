@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'gatsby';
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 //Components 
 import Layout from '../components/layout';
@@ -11,8 +12,8 @@ const Home = () => {
   return ( <>
     <Layout>
       <div className={indexStyles.index}>Hello world!</div>
-      <Link to="/contact">Contact</Link>
-      <Link to="/blog">Blog</Link>
+      <AniLink paintDrip to="/contact">Contact</AniLink>
+      <AniLink fade to="/blog">Blog</AniLink>
     </Layout>
   </> );
 }

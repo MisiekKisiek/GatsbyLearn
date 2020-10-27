@@ -5,7 +5,9 @@ date: "25.10.2020"
 
 Kursiwsko
 
-## Topics dsa
+![Compass](./image.jpg)
+
+## Topics dupa
 
 1. Gatsby
 2. GraphQl

@@ -28,8 +28,9 @@ const Blog = () => {
     const {edges} = data.allMarkdownRemark;
     const posts = edges.map(post => {
         const {title, date} = post.node.frontmatter;
+        const {slug} = post.node.fields;
         console.log(title,date, post)
-        return(<Post title={title} date={date} key={title}/>)
+        return(<Post title={title} date={date} key={title} slug={slug}/>)
     })
     return posts
   }
