@@ -12,7 +12,7 @@ const Home = () => {
   return ( <>
     <Layout>
       <div className={indexStyles.index}>Hello world!</div>
-      <AniLink paintDrip to="/contact">Contact</AniLink>
+      <AniLink fade to="/contact">Contact</AniLink>
       <AniLink fade to="/blog">Blog</AniLink>
     </Layout>
   </> );

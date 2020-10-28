@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 
 //Components 
 import Layout from '../components/layout';
@@ -7,36 +7,37 @@ import Post from '../components/postElement'
 
 const Blog = () => {
   const data = useStaticQuery(graphql`
-     {
-      allMarkdownRemark{
-        edges{
-          node{
-            frontmatter{
-              title
-              date
-            }
-            fields{
-              slug
-            }
-          }
+  {
+    allContentfulBlogPost(
+      sort:{
+        fields: publishedDate,
+        order: DESC
+      }
+    ){
+      edges{
+        node{
+          title
+          slug
+          publishedDate(formatString: "Do MMMM Y")
         }
       }
-     }
+    }
+  }
   `)
 
   const renderPosts = () => {
-    const {edges} = data.allMarkdownRemark;
+    const {edges} = data.allContentfulBlogPost;
+    console.log(data)
     const posts = edges.map(post => {
-        const {title, date} = post.node.frontmatter;
-        const {slug} = post.node.fields;
-        console.log(title,date, post)
-        return(<Post title={title} date={date} key={title} slug={slug}/>)
+        const {title, publishedDate, slug} = post.node;
+        return(<Post title={title} date={publishedDate} key={title} slug={slug}/>)
     })
     return posts
   }
   return (
     <Layout>
       {renderPosts()}
+      <Link to="/">Go back</Link>
     </Layout>
   )
 }
