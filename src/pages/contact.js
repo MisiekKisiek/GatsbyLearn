@@ -7,6 +7,9 @@ import contactStyles from '../styles/contact.module.scss';
 //Layouts
 import HeaderLayout from '../components/layout';
 
+//Components
+import Head from '../components/head';
+
 const Contact = () => {
 
     useEffect(() => {
@@ -15,6 +18,7 @@ const Contact = () => {
 
     return ( 
     <HeaderLayout>
+        <Head titleAd="contact"/>
         <h1 className={contactStyles.link}>Contact</h1>
         <p className={contactStyles.paragraph}>You can find me on 
             <a href="https://facebook.com" className={contactStyles.link}>Facebook</a>
