@@ -39,7 +39,7 @@ const Blog = () => {
     <Layout>
       <Head titleAd="blog"/>
       {renderPosts()}
-      <Link to="/">Go back</Link>
+      <Link to="/">Go back broooooo</Link>
     </Layout>
   )
 }
